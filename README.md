@@ -15,8 +15,7 @@
   
   </div>
   
-  <h3>Video Link : [[https://drive.google.com/file/d/1t8n52VLYrzwpkxdr6-2WLkcWrFeS200M/view?usp=sharing](https://drive.google.com/file/d/1OERAOOzoBvCvrHKQU-hgUCRJcYaLwV5u/view?usp=sharing)](https://drive.google.com/file/d/1OERAOOzoBvCvrHKQU-hgUCRJcYaLwV5u/view?usp=sharing)</h3>
-    
+  <h3> Video Link: https://drive.google.com/file/d/1OERAOOzoBvCvrHKQU-hgUCRJcYaLwV5u/view?usp=sharing</h3>
 
     
 
