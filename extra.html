@@ -7,9 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="spslogo.png" type="image/x-icon">
     <title>SPS</title>
-
-    <script src= "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js">
-		</script>
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
@@ -193,7 +190,7 @@
     }
 
 
-    #submit,#enter,#button {
+    #submit {
         appearance: none;
         background-color: #000000;
         border: 2px solid #1A1A1A;
@@ -221,16 +218,16 @@
         will-change: transform;
     }
 
-    #submit:disabled,#enter:disabled,#button:disabled {
+    #submit:disabled {
         pointer-events: none;
     }
 
-    #submit:hover,#enter:hover,#button:hover {
+    #submit:hover {
         box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
         transform: translateY(-2px);
     }
 
-    #submit:active,#enter:active,#button:active {
+    #submit:active {
         box-shadow: none;
         transform: translateY(0);
     }
@@ -267,22 +264,51 @@
     }
 </style>
 <script>
-
+    const downloadPdf = document
+            .querySelector("#download-pdf");
+  
+        const submitForm = document
+            .querySelector("#submit-form");
+  
+        downloadPdf.addEventListener("click", () => {
+  
+            // Creating the element anchor that
+            // will download pdf
+            let element = document.createElement("a");
+            element.href = "./GFG.pdf";
+            element.download = "GFG.pdf";
+  
+            // Adding the element to body
+            document.documentElement.appendChild(element);
+  
+            // Above code is equivalent to
+            // <a href="path of file" download="file name"> 
+  
+            // onClick property, to trigger download
+            element.click();
+  
+            // Removing the element from body
+            document.documentElement.removeChild(element);
+  
+             // onClick property, to trigger submit form
+            submitForm.click();
+        });
+    
     window.onbeforeunload = function (e) { localStorage.clear(); };
 
     function addtolist1() {
         tit = document.getElementById('f1').name;
         desc = document.getElementById('f1').value;
-        if (localStorage.getItem('itemsJson') == null) {
-            itemJsonArray = [];
-            itemJsonArray.push([tit, desc]);
-            localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
+        if (localStorage.getItem('key') == null) {
+            itar = [];
+            itar.push([tit, desc]);
+            localStorage.setItem('key', JSON.stringify(itar))
         }
         else {
-            itemJsonArrayStr = localStorage.getItem('itemsJson')
-            itemJsonArray = JSON.parse(itemJsonArrayStr);
-            itemJsonArray.push([tit, desc]);
-            localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
+            itarStr = localStorage.getItem('key')
+            itar = JSON.parse(itarStr);
+            itar.push([tit, desc]);
+            localStorage.setItem('key', JSON.stringify(itar))
         }
 
         update();
@@ -291,16 +317,16 @@
     function addtolist2() {
         tit = document.getElementById('f2').name;
         desc = document.getElementById('f2').value;
-        if (localStorage.getItem('itemsJson') == null) {
-            itemJsonArray = [];
-            itemJsonArray.push([tit, desc]);
-            localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
+        if (localStorage.getItem('key') == null) {
+            itar = [];
+            itar.push([tit, desc]);
+            localStorage.setItem('key', JSON.stringify(itar))
         }
         else {
-            itemJsonArrayStr = localStorage.getItem('itemsJson')
-            itemJsonArray = JSON.parse(itemJsonArrayStr);
-            itemJsonArray.push([tit, desc]);
-            localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
+            itarStr = localStorage.getItem('key')
+            itar = JSON.parse(itarStr);
+            itar.push([tit, desc]);
+            localStorage.setItem('key', JSON.stringify(itar))
         }
 
         update();
@@ -309,16 +335,16 @@
     function addtolist3() {
         tit = document.getElementById('f3').name;
         desc = document.getElementById('f3').value;
-        if (localStorage.getItem('itemsJson') == null) {
-            itemJsonArray = [];
-            itemJsonArray.push([tit, desc]);
-            localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
+        if (localStorage.getItem('key') == null) {
+            itar = [];
+            itar.push([tit, desc]);
+            localStorage.setItem('key', JSON.stringify(itar))
         }
         else {
-            itemJsonArrayStr = localStorage.getItem('itemsJson')
-            itemJsonArray = JSON.parse(itemJsonArrayStr);
-            itemJsonArray.push([tit, desc]);
-            localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
+            itarStr = localStorage.getItem('key')
+            itar = JSON.parse(itarStr);
+            itar.push([tit, desc]);
+            localStorage.setItem('key', JSON.stringify(itar))
         }
 
         update();
@@ -327,16 +353,16 @@
     function addtolist4() {
         tit = document.getElementById('f4').name;          //{(a arr1),(),(),()}
         desc = document.getElementById('f4').value;        // arr[10] = {}
-        if (localStorage.getItem('itemsJson') == null) {      // 
-            itemJsonArray = [];
-            itemJsonArray.push([tit, desc]);
-            localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
+        if (localStorage.getItem('key') == null) {      // 
+            itar = [];
+            itar.push([tit, desc]);
+            localStorage.setItem('key', JSON.stringify(itar))
         }
         else {
-            itemJsonArrayStr = localStorage.getItem('itemsJson')
-            itemJsonArray = JSON.parse(itemJsonArrayStr);
-            itemJsonArray.push([tit, desc]);
-            localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
+            itarStr = localStorage.getItem('key')
+            itar = JSON.parse(itarStr);
+            itar.push([tit, desc]);
+            localStorage.setItem('key', JSON.stringify(itar))
         }
 
         update();
@@ -345,16 +371,16 @@
     function addtolist5() {
         tit = document.getElementById('f5').name;
         desc = document.getElementById('f5').value;
-        if (localStorage.getItem('itemsJson') == null) {
-            itemJsonArray = [];
-            itemJsonArray.push([tit, desc]);
-            localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
+        if (localStorage.getItem('key') == null) {
+            itar = [];
+            itar.push([tit, desc]);
+            localStorage.setItem('key', JSON.stringify(itar))
         }
         else {
-            itemJsonArrayStr = localStorage.getItem('itemsJson')
-            itemJsonArray = JSON.parse(itemJsonArrayStr);
-            itemJsonArray.push([tit, desc]);
-            localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
+            itarStr = localStorage.getItem('key')
+            itar = JSON.parse(itarStr);
+            itar.push([tit, desc]);
+            localStorage.setItem('key', JSON.stringify(itar))
         }
 
         update();
@@ -362,16 +388,16 @@
     function addtolist6() {
         tit = document.getElementById('f6').name;
         desc = document.getElementById('f6').value;
-        if (localStorage.getItem('itemsJson') == null) {
-            itemJsonArray = [];
-            itemJsonArray.push([tit, desc]);
-            localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
+        if (localStorage.getItem('key') == null) {
+            itar = [];
+            itar.push([tit, desc]);
+            localStorage.setItem('key', JSON.stringify(itar))
         }
         else {
-            itemJsonArrayStr = localStorage.getItem('itemsJson')
-            itemJsonArray = JSON.parse(itemJsonArrayStr);
-            itemJsonArray.push([tit, desc]);
-            localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
+            itarStr = localStorage.getItem('key')
+            itar = JSON.parse(itarStr);
+            itar.push([tit, desc]);
+            localStorage.setItem('key', JSON.stringify(itar))
         }
 
         update();
@@ -379,16 +405,16 @@
     function addtolist7() {
         tit = document.getElementById('f7').name;
         desc = document.getElementById('f7').value;
-        if (localStorage.getItem('itemsJson') == null) {
-            itemJsonArray = [];
-            itemJsonArray.push([tit, desc]);
-            localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
+        if (localStorage.getItem('key') == null) {
+            itar = [];
+            itar.push([tit, desc]);
+            localStorage.setItem('key', JSON.stringify(itar))
         }
         else {
-            itemJsonArrayStr = localStorage.getItem('itemsJson')
-            itemJsonArray = JSON.parse(itemJsonArrayStr);
-            itemJsonArray.push([tit, desc]);
-            localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
+            itarStr = localStorage.getItem('key')
+            itar = JSON.parse(itarStr);
+            itar.push([tit, desc]);
+            localStorage.setItem('key', JSON.stringify(itar))
         }
 
         update();
@@ -396,16 +422,16 @@
     function addtolist8() {
         tit = document.getElementById('f8').name;
         desc = document.getElementById('f8').value;
-        if (localStorage.getItem('itemsJson') == null) {
-            itemJsonArray = [];
-            itemJsonArray.push([tit, desc]);
-            localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
+        if (localStorage.getItem('key') == null) {
+            itar = [];
+            itar.push([tit, desc]);
+            localStorage.setItem('key', JSON.stringify(itar))
         }
         else {
-            itemJsonArrayStr = localStorage.getItem('itemsJson')
-            itemJsonArray = JSON.parse(itemJsonArrayStr);
-            itemJsonArray.push([tit, desc]);
-            localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
+            itarStr = localStorage.getItem('key')
+            itar = JSON.parse(itarStr);
+            itar.push([tit, desc]);
+            localStorage.setItem('key', JSON.stringify(itar))
         }
 
         update();
@@ -413,16 +439,16 @@
     function addtolist9() {
         tit = document.getElementById('f9').name;
         desc = document.getElementById('f9').value;
-        if (localStorage.getItem('itemsJson') == null) {
-            itemJsonArray = [];
-            itemJsonArray.push([tit, desc]);
-            localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
+        if (localStorage.getItem('key') == null) {
+            itar = [];
+            itar.push([tit, desc]);
+            localStorage.setItem('key', JSON.stringify(itar))
         }
         else {
-            itemJsonArrayStr = localStorage.getItem('itemsJson')
-            itemJsonArray = JSON.parse(itemJsonArrayStr);
-            itemJsonArray.push([tit, desc]);
-            localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
+            itarStr = localStorage.getItem('key')
+            itar = JSON.parse(itarStr);
+            itar.push([tit, desc]);
+            localStorage.setItem('key', JSON.stringify(itar))
         }
 
         update();
@@ -430,33 +456,33 @@
     function addtolist10() {
         tit = document.getElementById('f10').name;
         desc = document.getElementById('f10').value;
-        if (localStorage.getItem('itemsJson') == null) {
-            itemJsonArray = [];
-            itemJsonArray.push([tit, desc]);
-            localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
+        if (localStorage.getItem('key') == null) {
+            itar = [];
+            itar.push([tit, desc]);
+            localStorage.setItem('key', JSON.stringify(itar))
         }
         else {
-            itemJsonArrayStr = localStorage.getItem('itemsJson')
-            itemJsonArray = JSON.parse(itemJsonArrayStr);
-            itemJsonArray.push([tit, desc]);
-            localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
+            itarStr = localStorage.getItem('key')
+            itar = JSON.parse(itarStr);
+            itar.push([tit, desc]);
+            localStorage.setItem('key', JSON.stringify(itar))
         }
 
         update();
     }
     function update() {
-        if (localStorage.getItem('itemsJson') == null) {
-            itemJsonArray = [];
-            localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
+        if (localStorage.getItem('key') == null) {
+            itar = [];
+            localStorage.setItem('key', JSON.stringify(itar))
         }
         else {
-            itemJsonArrayStr = localStorage.getItem('itemsJson')
-            itemJsonArray = JSON.parse(itemJsonArrayStr);
+            itarStr = localStorage.getItem('key')
+            itar = JSON.parse(itarStr);
         }
         // Populate the table
         let tableBody = document.getElementById("tableBody");
         let str = "";
-        itemJsonArray.forEach((element, index) => {
+        itar.forEach((element, index) => {
             str += `
             <tr>
             <td scope="row">${index + 1}</td>
@@ -470,11 +496,11 @@
 
     function deleted(itemIndex) {
         console.log("Delete", itemIndex);
-        itemJsonArrayStr = localStorage.getItem('itemsJson')
-        itemJsonArray = JSON.parse(itemJsonArrayStr);
+        itarStr = localStorage.getItem('key')
+        itar = JSON.parse(itarStr);
         // Delete itemIndex element from the array
-        itemJsonArray.splice(itemIndex, 1);
-        localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray));
+        itar.splice(itemIndex, 1);
+        localStorage.setItem('key', JSON.stringify(itar));
         update();
 
     }
@@ -492,7 +518,7 @@
                 name = "NO NAME"
             }
 
-            str += `<div style="background-image:url('mainbg.png');"><div style="border: 2px solid black; margin-left:25%; margin-right:25%; margin-top:20px; margin-bottom:0px; background-color: grey;" id="makepdf"><center> <h1 style="color:white"><u>TAX INVOICE</u></h1> 
+            str += `<div style="background-image:url('mainbg.png');"><div style="border: 2px solid black; margin-left:25%; margin-right:25%; margin-top:20px; margin-bottom:0px; background-color: grey;"><center> <h1 style="color:white"><u>TAX INVOICE</u></h1> 
             <div style="background-color: #ffffff ; padding:5px; margin:0px">
             <div style="background-image:url('bg4.jpg'); padding:10px;">
             <p><img src="spslogo2.png"></p>
@@ -511,12 +537,12 @@
 
 
 
-            itemJsonArrayStr = localStorage.getItem('itemsJson')
-            itemJsonArray = JSON.parse(itemJsonArrayStr);
+            itarStr = localStorage.getItem('key')
+            itar = JSON.parse(itarStr);
 
             let sum = 0;
 
-            itemJsonArray.sort();
+            itar.sort();
 
             let count = 1;
 
@@ -524,18 +550,18 @@
 
             let tot_amt = 0;
 
-            for (let x = 1; x < itemJsonArray.length; x++) {
-                if (itemJsonArray[x][0] == itemJsonArray[x - 1][0]) {
+            for (let x = 1; x < itar.length; x++) {
+                if (itar[x][0] == itar[x - 1][0]) {
                     count++;
                     continue;
                 }
                 else {
-                    let sum = parseInt(itemJsonArray[x - 1][1]) * count;
+                    let sum = parseInt(itar[x - 1][1]) * count;
                     tot_amt += sum;
                     str += ` <tr>
                     <td>${srno}</td>
-                    <td>${itemJsonArray[x - 1][0]}</td>
-                    <td>₹${itemJsonArray[x - 1][1]}</td>
+                    <td>${itar[x - 1][0]}</td>
+                    <td>₹${itar[x - 1][1]}</td>
                     <td>${count}</td>
                     <td>₹${sum}</td>
                     
@@ -546,7 +572,7 @@
 
             }
 
-            sum = parseInt(itemJsonArray[itemJsonArray.length - 1][1]) * count;
+            sum = parseInt(itar[itar.length - 1][1]) * count;
 
             tot_amt += sum;
 
@@ -569,8 +595,8 @@
 
             str += ` <tr>
                 <td>${srno}</td>
-                <td>${itemJsonArray[itemJsonArray.length - 1][0]}</td>
-                <td>₹${itemJsonArray[itemJsonArray.length - 1][1]}</td>
+                <td>${itar[itar.length - 1][0]}</td>
+                <td>₹${itar[itar.length - 1][1]}</td>
                 <td>${count}</td>
                 <td>₹${sum}</td>
                 
@@ -608,29 +634,11 @@
                 <td>₹${per_head}</td>
             </tr>
     
-        </table><div style="background-color:grey; margin-bottom:0px;color:white"><br><h3>CONTACT US :</h3><p>Mobile : 9874563210</p><p>Email : spsfoods@gmail.com</p><p style="padding-bottom:20px;">Address : Kholvad<br>Taluka-Kamrej,<br>Surat, Gujarat</p></div> </center> </div><br><br><center><a href="firstpage.html" target="_blank"><button id="button" style="font-size:large; margin:20px" onclick="generatepdf()">Create Pdf</button><a href="firstpage.html" target="_blank"><button id="submit" style="font-size:large; margin:20px ">GENERATE ANOTHER BILL</button></a></center></div>`;
+        </table><div style="background-color:grey; margin-bottom:0px;color:white"><br><h3>CONTACT US :</h3><p>Mobile : 9874563210</p><p>Email : spsfoods@gmail.com</p><p style="padding-bottom:20px;">Address : Kholvad<br>Taluka-Kamrej,<br>Surat, Gujarat</p></div> </center> </div><br><br><center><a href="firstpage.html" target="_blank"><button id="submit" style="font-size:large">GENERATE ANOTHER BILL</button></a><input type="submit" id="submit-form" 
+            value="submit" hidden /><button id="submit" style="font-size:large">Download a PDF</button> </center></div>`;
             document.getElementById('changepage').innerHTML = str;
         }
     }
-
-
-    function generatepdf()
-    {
-        var makepdf = document.getElementById("makepdf");
-        var mywindow = window.open("", "PRINT", "height=400,width=600");
-
-        mywindow.document.write(makepdf.innerHTML);
-
-        mywindow.document.close();
-        mywindow.focus();
-
-        mywindow.print();
-       // mywindow.close();
-
-        return true;
-    }
-
-    
 </script>
 
 <body id="changepage">

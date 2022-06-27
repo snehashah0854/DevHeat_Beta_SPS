@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="spslogo.png" type="image/x-icon">
     <title>SPS</title>
+
+    <script src= "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js">
+    </script>
+
     <style>
         #tb { 
             border-collapse: separate;
@@ -194,7 +198,7 @@
             transform: translateY(0);
         }
 
-        #submit,#enter {
+        #submit,#enter,#button {
             appearance: none;
             background-color: #000000;
             border: 2px solid #1A1A1A;
@@ -222,16 +226,16 @@
             will-change: transform;
         }
 
-        #submit:disabled,#enter:disabled {
+        #submit:disabled,#enter:disabled,#button:disabled {
             pointer-events: none;
         }
 
-        #submit:hover,#enter:hover {
+        #submit:hover,#enter:hover,#button:hover {
             box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
             transform: translateY(-2px);
         }
 
-        #submit:active,#enter:active {
+        #submit:active,#enter:active,#button:active {
             box-shadow: none;
             transform: translateY(0);
         }
@@ -479,7 +483,7 @@
                 <tr>
                 <td scope="row">${index + 1}</td>
                 <td>${element[0]}</td>
-                <td>${element[1]}</td> 
+                <td>₹${element[1]}</td> 
                 <td style="border:none;"><button class="qwer" onclick="deleted(${index},${cname})">Delete</button></td> 
                 </tr>`;
             });
@@ -551,6 +555,13 @@
 
             document.getElementById('changepage2').innerHTML = str;
 
+
+            for (let j = 0; j < number_customer; j++) {
+                let temp = document.getElementById(ClassArray[j])
+                console.log(temp);
+                update(temp);
+            }
+
         }
 
 
@@ -564,7 +575,7 @@
             
             str = "";
 
-                str += `<div style="background-image:url('mainbg.png');"><div style="border: 2px solid black; margin-left:25%; margin-right:25%; margin-top:20px; margin-bottom:0px; background-color: grey;"><center><h1 style="color:white"><u>TAX INVOICE</u></h1> 
+                str += `<div style="background-image:url('mainbg.png');"><div style="border: 2px solid black; margin-left:25%; margin-right:25%; margin-top:20px; margin-bottom:0px; background-color: grey;" id="makepdf"><center><h1 style="color:white"><u>TAX INVOICE</u></h1> 
                     <div style="background-image:url('bg4.jpg'); padding:10px"><p><img src="spslogo2.png"></p>
                     <p style="font-size:20px;">GST number : GSTIN3539549309</p><br></div><br>`
 
@@ -622,9 +633,9 @@
                             str += ` <tr>
                             <td>${srno}</td>
                             <td>${itemJsonArray[x - 1][0]}</td>
-                            <td>${itemJsonArray[x - 1][1]}</td>
+                            <td>₹${itemJsonArray[x - 1][1]}</td>
                             <td>${count}</td>
-                            <td>${sum}</td>
+                            <td>₹${sum}</td>
                             
                         </tr>`;
                             count = 1;
@@ -647,9 +658,9 @@
                     str += ` <tr>
                         <td>${srno}</td>
                         <td>${itemJsonArray[itemJsonArray.length - 1][0]}</td>
-                        <td>${itemJsonArray[itemJsonArray.length - 1][1]}</td>
+                        <td>₹${itemJsonArray[itemJsonArray.length - 1][1]}</td>
                         <td>${count}</td>
-                        <td>${sum}</td>
+                        <td>₹${sum}</td>
                         
                     </tr>`;
         
@@ -658,7 +669,7 @@
                         <td></td>
                         <td></td>
                         <td>Total Amount</td>
-                        <td>${tot_amt}</td>
+                        <td>₹${tot_amt}</td>
                     </tr>
             
                     <tr>
@@ -666,7 +677,7 @@
                         <td>GST Rate</td>
                         <td>18%</td>
                         <td>Total Tax amount</td>
-                        <td>${gst_amt}</td>
+                        <td>₹${gst_amt}</td>
                     </tr>
             
                     <tr>
@@ -674,7 +685,7 @@
                         <td></td>
                         <td></td>
                         <td>Final Amount</td>
-                        <td>${final_amt}</td>
+                        <td>₹${final_amt}</td>
                     </tr>
                     
                 </table><br>
@@ -684,10 +695,26 @@
                 }
                     
             
-               str += `<div style="color:#ffffff";><h3>CONTACT US :</h3><p>Mobile : 9874563210</p><p>Email : spsfoods@gmail.com</p><p style="padding-bottom:20px;">Address : Kholvad<br>Taluka-Kamrej,<br>Surat, Gujarat</p></div> </center></div><br><br><center><a href="firstpage.html" target="_blank"><button id="submit" style="font-size:large">GENERATE ANOTHER BILL</button></a></center></div>`;
+               str += `<div style="color:#ffffff";><h3>CONTACT US :</h3><p>Mobile : 9874563210</p><p>Email : spsfoods@gmail.com</p><p style="padding-bottom:20px;">Address : Kholvad<br>Taluka-Kamrej,<br>Surat, Gujarat</p></div> </center></div><br><br><center><button id="button" style="font-size:large; margin:20px" onclick="generatepdf()">Create Pdf</button><a href="firstpage.html" target="_blank"><button id="submit" style="font-size:large; margin:20px ">GENERATE ANOTHER BILL</button></a></center></div>`;
                     document.getElementById('changepage').innerHTML = str;}
                 
             }
+
+            function generatepdf()
+            {
+            var makepdf = document.getElementById("makepdf");
+            var mywindow = window.open("", "PRINT", "height=400,width=600");
+
+            mywindow.document.write(makepdf.innerHTML);
+
+            mywindow.document.close();
+            mywindow.focus();
+
+            mywindow.print();
+            // mywindow.close();
+
+        return true;
+    }
             
         
     </script>
@@ -704,11 +731,6 @@
         </div>
     </center>
     <div id="changepage2"></div>
-
-
-
-
-
 
 
 </body>
