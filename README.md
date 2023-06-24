@@ -1,8 +1,23 @@
-# DevHeat_Beta_SPS
+# Bill Generator
 
-          
-   <h1> <span class="tit">Problem Statement -</span>  <span class="val">Kamrej Calling</span> </h1>
-   <h1>  <span class="tit">Project's Title -</span>  <span class="val">Bill Generator</span> </h1>
+# 🧭 Table of contents
+
+- [Real-Time Chat Application](#real-time-chat-application)
+- [🧭 Table of contents](#-table-of-contents)
+- [Introduction](#introduction)
+- [Quick Start](#quick-start)
+- [Frontend](#frontend)
+- [Backend](#backend)
+- [Database](#database)
+- [Future Aspirations for this App](#future-aspirations-for-this-app)
+
+# Problem Statement
+Kamrej Calling 
+
+# Introduction
+This is our project for submission in a 7-day long Hackathon Devheat-Beta organised by GDSC IIIT SURAT.
+We have made a platform which allows the user to generate bill for the food ordered in the restuarant. It also give a feature to create individual bills thus making them free of the tedious task of keeping track of everyone's bill amount.
+
    <h1> <span class="tit">Languages Used -</span> <span class="val">HTML, CSS, JavaScript</span> </h1>
    <h1>  <span class="tit">Project's Description :-</span>  </h1><h3 class="val"><div style="margin-right: 300px;"><p style="text-align: justify;">We have created a website to generate bills with GST calculation included. It asks the user which type of bill he/she wants to generate.<br>
         We have two types of bills. First one gives the per-head amount of the total bill and the second one generates individual bill for each customer for the particular dishes they have ordered.<br>
@@ -16,6 +31,7 @@
   </div>
   
   <h3> Video Link: https://drive.google.com/file/d/1OERAOOzoBvCvrHKQU-hgUCRJcYaLwV5u/view?usp=sharing</h3>
+  <h3> Deployed on Netlify Link: https://sps-swad-plus-sehat.netlify.app/index.html</h3>
 
     
 
