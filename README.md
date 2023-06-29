@@ -11,6 +11,8 @@
   
 # Problem Statement
 Kamrej Calling 
+Avanish wants to throw a party, but the stall owner is unable to create GST bills. Zaid, Sparsh, Naitik, and Dhruv ordered some food from the stall nearby.
+After eating a lot, they need to split the bill accurately. However, they are too lazy to calculate it themselves. Naitik insists on proper bills but needs help as the owner lacks knowledge.
 
 # Introduction
 This is our project for submission in a 7-day-long Hackathon Devheat-Beta organized by GDSC IIIT SURAT.
